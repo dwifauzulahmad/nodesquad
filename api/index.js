@@ -131,6 +131,12 @@ app.get("/api/pelatihan", async (_req, res) => {
   res.json(results.rows);
 });
 
+// 
+
+app.post("/api/keluar", (req, res) => {
+  res.clearCookie(`${req.body.token}`);
+  res.redirect("/login");
+});
 app.listen(3000, () => {
   console.log("Server berhasil berjalan.");
 });

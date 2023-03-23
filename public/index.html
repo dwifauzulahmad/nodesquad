@@ -16,8 +16,23 @@
       </thead>
       <tbody></tbody>
     </table>
+    <button>LogOut</button>
     <script>
       const nama = document.querySelector("span");
+      document.querySelector("button").addEventListener("click", async () => {
+        await fetch("/api/keluar", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            token:"token"
+          })
+        });
+        location.reload();
+
+      });
+
 
       fetch("/api/me")
         .then((response) => response.json())
